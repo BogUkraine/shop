@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 
 import images from '../images/images';
-import icons from '../functions/iconsArray';
+import isNight from '../functions/isNight';
 
 import Conditions from './Conditions';
 import Temperature from './Temperature';
@@ -12,7 +12,7 @@ import Chart from './Chart';
 
 const Home = () => {
     const { currentWeather, fiveDaysWeather, userLocation } = useSelector(state => ({
-        userLocation: state.userData.city || 'London',
+        userLocation: state.userData.city || JSON.parse(localStorage.location).city || 'London',
         currentWeather: state.currentWeather,
         fiveDaysWeather: state.fiveDaysWeather,
     }), shallowEqual);
@@ -24,7 +24,7 @@ const Home = () => {
     };
     
     useEffect(() => {
-        if(!localStorage.location.city) {
+        if(!localStorage.location) {
             dispatch({type: 'FETCH_USER_LOCATION'});
         }
         else {
@@ -34,9 +34,10 @@ const Home = () => {
     }, []);
 
     useEffect(() => {
+        console.log('is night?', isNight(currentWeather.sys.sunrise, currentWeather.sys.sunset));
         const image = images.find((item) => item.description === currentWeather.weather[0].main) || {src: ''};
         setBackgroundImage(image.src)
-    });
+    }, [currentWeather.weather[0].main]);
 
     return (
         <div className="home" style={{backgroundImage: `url(${backgroundImage})`}}>
@@ -45,7 +46,7 @@ const Home = () => {
                     <h2 className="container__title">Current weather in {userLocation}</h2>
                     <div className="container__weather weather">
                         <div className="weather__item">
-                            <Conditions icons={icons} currentWeather={currentWeather}/>
+                            <Conditions currentWeather={currentWeather}/>
                             <Temperature currentWeather={currentWeather}/>
                             <Wind currentWeather={currentWeather}/>
                             <SunPosition currentWeather={currentWeather}/>
