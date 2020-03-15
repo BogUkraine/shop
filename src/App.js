@@ -4,7 +4,6 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import './styles/main.scss';
 
 import Header from './components/Header';
-import Footer from './components/Footer';
 import Home from './components/Home';
 
 const App = () => {
@@ -12,7 +11,6 @@ const App = () => {
     <BrowserRouter>
       <Header/>
       <Route exact path="/" component={Home}/>
-      {/* <Footer/> */}
     </BrowserRouter>
   );
 }
