@@ -1,4 +1,4 @@
-const initialState = [];
+const initialState = {};
 
 export default function fiveDaysWeather(state = initialState, action) {
 	switch(action.type){

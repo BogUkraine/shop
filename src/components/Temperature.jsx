@@ -6,8 +6,8 @@ const Temperature = (props) => {
         <div className="weather__temperature temperature">
             <p className="temperature__actual">Temperature: {kelvinToCelcium(props.currentWeather.main.temp)}&#176;C</p>
             <p className="temperature__feels">Feels like: {kelvinToCelcium(props.currentWeather.main.feels_like)}&#176;C</p>
-            <p className="temperature__humidity">Humidity: {props.currentWeather.main.humidity}%</p>
-            <p className="temperature__feels">Pressure: {props.currentWeather.main.pressure} hPa</p>
+            <p className="temperature__min">Min in city: {kelvinToCelcium(props.currentWeather.main.temp_min)}&#176;C</p>
+            <p className="temperature__max">Max in city: {kelvinToCelcium(props.currentWeather.main.temp_max)}&#176;C</p>
         </div>                
     )
 }

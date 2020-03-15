@@ -14,16 +14,28 @@
         justify-content: space-evenly;
         align-items: center;
         width: 100px;
+        min-width: 120px;
         height: 100%;
         flex: 1;
     }
 
     &__temperature {
         flex: 1;
+        min-width: 150px;
+    }
+
+    &__wind {
+        flex: 1;
+        min-width: 150px;
+    }
+
+    &__sun {
+        flex: 1;
+        min-width: 150px;
     }
 
     &__chart {
-        flex: 4;
+        flex: 1;
     }
 
     &__icon {
