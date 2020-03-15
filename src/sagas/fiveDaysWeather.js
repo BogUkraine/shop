@@ -4,7 +4,7 @@ import { put, call } from 'redux-saga/effects';
 const getCurrentData = (url) => {
     return axios.get(url)
     .then( (response) => {
-        console.log('current data', response.data);
+        console.log('five days data', response.data);
         return response.data;
     })
     .catch(function (error) {
@@ -12,9 +12,9 @@ const getCurrentData = (url) => {
     });
 }
 
-export default function* currentWeather({location}) {
+export default function* fiveDaysWeather({location}) {
     const data = yield call(
     getCurrentData, 
-    `https://api.openweathermap.org/data/2.5/weather?q=${location.city},${location.countryCode}&APPID=f5bd87baf248f1fabb4c782d4856430f`);
-    yield put({ type: "CURRENT_WEATHER_IS_FETCHED", payload: data});
+    `http://api.openweathermap.org/data/2.5/forecast?q=${location.city},${location.countryCode}&APPID=f5bd87baf248f1fabb4c782d4856430f`);
+    yield put({ type: "FIVE_DAYS_WEATHER_IS_FETCHED", payload: data});
 }

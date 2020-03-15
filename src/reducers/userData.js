@@ -1,8 +1,8 @@
 const initialState = [];
 
-export default function currentWeather(state = initialState, action) {
+export default function fiveDaysWeather(state = initialState, action) {
 	switch(action.type){
-		case('CURRENT_WEATHER_IS_FETCHED'): {
+		case('USER_LOCATION_FETCHED'): {
 			return action.payload;
 		}
 		default: {

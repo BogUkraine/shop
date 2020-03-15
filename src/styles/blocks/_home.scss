@@ -26,12 +26,17 @@
         margin: 10px 0;
         height: $container-height-normal;
         background: $container-background-color-dark;
-        opacity: 0.5;
+        opacity: 0.8;
+        padding: 10px;
+        box-sizing: border-box;
 
         &--big {
             height: $container-height-big;
         }
     }
 
+    &__title {
+        font-size: 20px;
+    }
 
 }
