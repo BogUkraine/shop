@@ -24,13 +24,16 @@ const Home = () => {
     // };
     
     useEffect(() => {
-        if(!localStorage.location) {
-            dispatch({type: 'FETCH_USER_LOCATION'});
-        }
-        else {
-            // dispatch({type: 'FETCH_CURRENT_WEATHER', location});
-            // dispatch({type: 'FETCH_FIVE_DAYS_WEATHER', location});            
-        }
+        dispatch({type: 'FETCH_USER_LOCATION'});
+        // if(!localStorage.location) {
+            
+        // }
+        // else {
+        //     // console.log(location)
+        //     // dispatch({type: 'GET_LOCATION_FROM_LOCAL_STORAGE'});
+        //     // dispatch({type: 'FETCH_CURRENT_WEATHER', location});
+        //     // dispatch({type: 'FETCH_FIVE_DAYS_WEATHER', location});            
+        // }
     }, []);
 
     useEffect(() => {
