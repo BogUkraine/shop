@@ -12,24 +12,24 @@ import Chart from './Chart';
 
 const Home = () => {
     const { currentWeather, fiveDaysWeather, userLocation } = useSelector(state => ({
-        userLocation: state.userData.city || JSON.parse(localStorage.location).city || 'London',
+        userLocation: state.userData,
         currentWeather: state.currentWeather,
         fiveDaysWeather: state.fiveDaysWeather,
     }), shallowEqual);
     const dispatch = useDispatch();
     const [ backgroundImage, setBackgroundImage ] = useState(images[8].src);
-    const location = {
-        city: JSON.parse(localStorage.location).city || 'London',
-        countryCode: JSON.parse(localStorage.location).countryCode || 'uk',
-    };
+    // const location = {
+    //     city: JSON.parse(localStorage.location).city || 'London',
+    //     countryCode: JSON.parse(localStorage.location).countryCode || 'uk',
+    // };
     
     useEffect(() => {
         if(!localStorage.location) {
             dispatch({type: 'FETCH_USER_LOCATION'});
         }
         else {
-            dispatch({type: 'FETCH_CURRENT_WEATHER', location});
-            dispatch({type: 'FETCH_FIVE_DAYS_WEATHER', location});            
+            // dispatch({type: 'FETCH_CURRENT_WEATHER', location});
+            // dispatch({type: 'FETCH_FIVE_DAYS_WEATHER', location});            
         }
     }, []);
 
@@ -43,7 +43,7 @@ const Home = () => {
         <div className="home" style={{backgroundImage: `url(${backgroundImage})`}}>
             <div className="home__container container">
                 <div className="container__item">
-                    <h2 className="container__title">Current weather in {userLocation}</h2>
+                    <h2 className="container__title">Current weather in {userLocation.city}</h2>
                     <div className="container__weather weather">
                         <div className="weather__item">
                             <Conditions currentWeather={currentWeather}/>
@@ -57,7 +57,7 @@ const Home = () => {
                     <Chart weather={fiveDaysWeather}/>
                 </div>
                 <div className="container__item container__item--big">
-                    <div className="container__title">Five days weather in {userLocation}</div>
+                    <div className="container__title">Five days weather in {userLocation.city}</div>
                     <div className="container__weather weather">
 
                     </div>

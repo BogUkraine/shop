@@ -1,4 +1,7 @@
-const initialState = {};
+const initialState = {
+	city: 'London',
+	contryCode: 'uk',
+};
 
 export default function fiveDaysWeather(state = initialState, action) {
 	switch(action.type){
