@@ -1,0 +1,37 @@
+.home {
+    width: 100%;
+    height: $main-height;
+    background-color: $main-color;
+    object-fit: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__container {
+
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80%;
+
+    &__item {
+        width: 100%;
+        margin: 10px 0;
+        height: $container-height-normal;
+        background: $container-background-color-dark;
+        opacity: 0.5;
+
+        &--big {
+            height: $container-height-big;
+        }
+    }
+
+
+}

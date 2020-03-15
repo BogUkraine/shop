@@ -12,8 +12,7 @@ const App = () => {
     <BrowserRouter>
       <Header/>
       <Route exact path="/" component={Home}/>
-
-      <Footer/>
+      {/* <Footer/> */}
     </BrowserRouter>
   );
 }
