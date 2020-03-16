@@ -13,7 +13,7 @@ const images = [
     { id: 2, src: p2, title: 'foo', description: 'Fog1' },
     { id: 3, src: p3, title: 'foo', description: 'Clouds' },
     { id: 4, src: p4, title: 'foo', description: 'Cloudy1' },
-    { id: 5, src: p5, title: 'foo', description: 'Rainy' },
+    { id: 5, src: p5, title: 'foo', description: 'Rain' },
     { id: 6, src: p6, title: 'foo', description: 'Snow' },
     { id: 7, src: p7, title: 'foo', description: 'Snow2' },
     { id: 8, src: p8, title: 'foo', description: 'Clear' },

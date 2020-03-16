@@ -6,10 +6,10 @@ $header-height: 60px;
 $footer-height: 60px;
 $main-height: 100vh;
 
-$container-height-normal: 22vh;
+$container-height-normal: 24vh;
 $container-height-small: 10vh;
 $container-height-big: 30vh;
-$weather-block-normal-height: calc(22vh - 44px);
+$weather-block-normal-height: calc(24vh - 44px);
 
 $color-dark: #1e1d1d;
 $color-light: #eaeaea;
@@ -22,3 +22,6 @@ $text-color: #eaeaea;
 $container-background-color-dark: #202022;
 $container-background-color-light: #eaeaea;
 
+$scrollbar-color: #082d3a;
+$scrollbar-thumb-color: #050505;
+$scrollbar-track-color: #eaeaea;

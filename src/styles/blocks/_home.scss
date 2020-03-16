@@ -12,6 +12,10 @@
 
     &__container {
         margin-top: 40px;
+
+        @include phone {
+            opacity: 1;
+        }
     }
 }
 
@@ -21,8 +25,13 @@
     justify-content: space-between;
     width: 80%;
 
+    @include phone {
+        width: 90%;
+    }
+
     &__item {
         width: 100%;
+        min-width: 150px;
         margin: 10px 0;
         height: $container-height-normal;
         background: $container-background-color-dark;
@@ -33,11 +42,23 @@
         &--big {
             height: $container-height-big;
         }
+
+        @include tablet {
+            font-size: 14px;
+        }
+
+        @include phone {
+            opacity: 1;
+        }
     }
 
     &__title {
         font-size: 20px;
         margin: 0;
+
+        @include phone {
+            font-size: 16px;
+        }
     }
 
 }

@@ -13,6 +13,9 @@ const Conditions = (props) => {
                 case('Clouds'): {
                     return icons.cloudNight;
                 }
+                case('Rain'): {
+                    return icons.rain;
+                }
                 default: {
                     return icons.clear;
                 }
@@ -25,6 +28,9 @@ const Conditions = (props) => {
                 }
                 case('Clouds'): {
                     return icons.cloudSun;
+                }
+                case('Rain'): {
+                    return icons.rain;
                 }
                 default: {
                     return icons.clear;
