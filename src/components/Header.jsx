@@ -1,11 +1,21 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 const Header = () => {
     const inputRef = React.createRef();
     const handleIconClick = () => {
         inputRef.current.focus();
-    }
+    };
+    const dispatch = useDispatch();
+
+    document.addEventListener('keypress', (event) => {
+        if(event.target === inputRef.current && event.key === 'Enter') {
+            dispatch({type: 'FETCH_CURRENT_WEATHER_BY_CITY', city: inputRef.current.value});
+            dispatch({type: 'FETCH_FIVE_DAYS_WEATHER_BY_CITY', city: inputRef.current.value});
+        }
+    })
+
 
     return (
         <div className="header">

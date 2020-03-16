@@ -1,26 +1,38 @@
 //import { delay } from 'redux-saga';
 import { takeLatest, all, delay } from 'redux-saga/effects';
 
-import currentWeather from './currentWeather';
-import fiveDaysWeather from './fiveDaysWeather';
+import currentWeatherByCoordinates from './currentWeather';
+import fiveDaysWeatherByCoordinates from './fiveDaysWeather';
+import currentWeatherByCity from './currentWeatherByCity';
+import fiveDaysWeatherByCity from './fiveDaysWeatherByCity';
 import userData from './userData';
 
 function* fetchUserData() {
     yield takeLatest('FETCH_USER_LOCATION', userData);
 }
 
-function* fetchCurrentWeatherWatcher() {
-    yield takeLatest('FETCH_CURRENT_WEATHER', currentWeather);
+function* fetchCurrentWeatherByCoordinatesWatcher() {
+    yield takeLatest('FETCH_CURRENT_WEATHER', currentWeatherByCoordinates);
 }
 
-function* fetchFiveDaysWeatherWatcher() {
-    yield takeLatest('FETCH_FIVE_DAYS_WEATHER', fiveDaysWeather);
+function* fetchFiveDaysWeatherByCoordinatesWatcher() {
+    yield takeLatest('FETCH_FIVE_DAYS_WEATHER', fiveDaysWeatherByCoordinates);
+}
+
+function* fetchCurrentWeatherByCityWatcher() {
+    yield takeLatest('FETCH_CURRENT_WEATHER_BY_CITY', currentWeatherByCity);
+}
+
+function* fetchFiveDaysWeatherByCityWatcher() {
+    yield takeLatest('FETCH_FIVE_DAYS_WEATHER_BY_CITY', fiveDaysWeatherByCity);
 }
 
 export default function* rootSaga() {
     yield all([
         fetchUserData(),
-        fetchCurrentWeatherWatcher(),
-        fetchFiveDaysWeatherWatcher(),
+        fetchCurrentWeatherByCoordinatesWatcher(),
+        fetchFiveDaysWeatherByCoordinatesWatcher(),
+        fetchCurrentWeatherByCityWatcher(),
+        fetchFiveDaysWeatherByCityWatcher(),
     ]);
 }
