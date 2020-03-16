@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Chart = (props) => {
+const Chart = ({ weather }) => {
     return(
         <div className="weather__chart chart">
-
+            <div className="chart__"></div>
         </div>
     )
 }

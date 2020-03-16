@@ -2,6 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
+import weather from '../images/weather1.png';
+
 const Header = () => {
     const inputRef = React.createRef();
     const handleIconClick = () => {
@@ -19,7 +21,7 @@ const Header = () => {
 
     return (
         <div className="header">
-            <div className="logo">Weather</div>
+            <div className="logo"><img src={weather} alt="weather" className="logo__image"/></div>
             <nav className="header__nav">
                 <NavLink to="/" className="header__link">Home</NavLink>
                 <NavLink to="/" className="header__link">Map</NavLink>

@@ -124,4 +124,11 @@
     font-size: 20px;
     flex: 2;
     margin-right: 10px;
+
+    &__image {
+        object-fit: contain;
+        width: 60%;
+        min-width: 90px;
+        height: 60%;
+    }
 }

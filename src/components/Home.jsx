@@ -11,11 +11,10 @@ import SunPosition from './SunPosition';
 import Chart from './Chart';
 
 const Home = () => {
-    const { currentWeather, fiveDaysWeather, userLocation, currentArrows } = useSelector(state => ({
+    const { currentWeather, fiveDaysWeather, userLocation } = useSelector(state => ({
         userLocation: state.userData,
         currentWeather: state.currentWeather,
-        fiveDaysWeather: state.fiveDaysWeather,
-        currentArrows: state.currentArrows
+        fiveDaysWeather: state.fiveDaysWeather
     }), shallowEqual);
 
     const dispatch = useDispatch();
@@ -70,10 +69,11 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="container__item">
+                    <h2 className="container__title">24 hours weather</h2>
                     <Chart weather={fiveDaysWeather}/>
                 </div>
                 <div className="container__item container__item--big">
-                    <div className="container__title">Five days weather in {userLocation.city}</div>
+                    <h2 className="container__title">Five days weather</h2>
                     <div className="container__weather weather">
 
                     </div>
