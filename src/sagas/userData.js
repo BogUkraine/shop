@@ -12,13 +12,13 @@ const getUserLocation = (url) => {
     });
 }
 
-export default function* addUser() {
+export default function* userData() {
     const data = yield call(
     getUserLocation, 
     'http://ip-api.com/json');
     if(data.status === 'success') {
         localStorage.setItem('location',
-    JSON.stringify({'city': data.city, 'countryCode': data.countryCode}));
+            JSON.stringify({'city': data.city, 'countryCode': data.countryCode}));
         yield put({ type: "USER_LOCATION_FETCHED", payload: data});
         yield put({ type: "FETCH_CURRENT_WEATHER", location: data});
         yield put({ type: "FETCH_FIVE_DAYS_WEATHER", location: data});

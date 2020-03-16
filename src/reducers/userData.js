@@ -1,15 +1,19 @@
 const initialState = {
-	city: 'London',
-	contryCode: 'uk',
+	location: {
+		lat: '51.509865',
+		lon: '-0.118092',
+	},
+	city: 'London'
 };
 
-export default function fiveDaysWeather(state = initialState, action) {
+export default function userData(state = initialState, action) {
 	switch(action.type){
 		case('USER_LOCATION_FETCHED'): {
 			return action.payload;
 		}
-		case('GET_LOCATION_FROM_LOCAL_STORAGE'): {
-			return JSON.parse(localStorage.location);
+		case('SET_USER_LOCATION'): {
+			console.log('action.payload', action.payload);
+			return {...state, ...action.payload};
 		}
 		default: {
 			return state;

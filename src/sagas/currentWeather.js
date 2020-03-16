@@ -12,9 +12,10 @@ const getCurrentData = (url) => {
     });
 }
 
-export default function* currentWeather({location}) {
+export default function* currentWeather({userData}) {
     const data = yield call(
     getCurrentData, 
-    `https://api.openweathermap.org/data/2.5/weather?q=${location.city},${location.countryCode}&APPID=f5bd87baf248f1fabb4c782d4856430f`);
+    `https://api.openweathermap.org/data/2.5/weather?lat=${userData.location.lat}&lon=${userData.location.lon}&APPID=f5bd87baf248f1fabb4c782d4856430f`);
+    yield put({ type: 'SET_USER_LOCATION', payload: {city: data.name}});
     yield put({ type: "CURRENT_WEATHER_IS_FETCHED", payload: data});
 }
