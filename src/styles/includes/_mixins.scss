@@ -4,13 +4,13 @@
     }
 }
   
-@mixin tablets {
+@mixin tablet {
     @media screen and (max-width: $tablet-width) {
         @content;
     }
 }
   
-@mixin phones {
+@mixin phone {
     @media screen and (max-width: $phone-width) {
         @content;
     }

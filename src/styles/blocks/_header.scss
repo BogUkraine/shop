@@ -12,11 +12,19 @@
     box-sizing: border-box;
     opacity: 0.5;
 
+    @include tablet {
+        padding: 0 20px;
+    }
+
     &__nav {
         display: flex;
         width: 300px;
         height: $header-height;
         flex: 4;
+
+        @include tablet {
+            width: 200px;
+        }
     }
 
     &__link {
@@ -29,6 +37,10 @@
         max-width: 100px;
         box-sizing: border-box;
         padding: 0 5px;
+
+        @include tablet {
+            font-size: 18px;
+        }
 
         &:after {
             content: '';
@@ -56,13 +68,27 @@
         font-size: 18px;
         width: 0;
         margin-right: 10px;
-        padding: 0 6px;
+        padding: 0;
         transition: all 0.3s;
+
+        @include tablet {
+            font-size: 16px;
+        }
+
+        @include phone {
+            position: absolute;
+            top: $header-height;
+            font-size: 20px;
+            right: 0;
+            height: 50px;
+            margin-right: 0;
+        }
 
         &:focus {
             width: 80%;
             border-bottom: 3px solid $color-light;
             outline-width: 0;
+            padding: 0 6px;
         }
     }
 
@@ -74,10 +100,17 @@
         min-width: 300px;
         flex: 4;
         margin-left: 20px;
+
+        @include tablet {
+            min-width: 100px;
+        }
     }
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
     font-size: 20px;
     flex: 2;
     margin-right: 10px;
