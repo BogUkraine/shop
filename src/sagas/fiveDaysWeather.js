@@ -15,6 +15,6 @@ const getCurrentData = (url) => {
 export default function* fiveDaysWeather({userData}) {
     const data = yield call(
     getCurrentData, 
-    `http://api.openweathermap.org/data/2.5/forecast?lat=${userData.location.lat}&lon=${userData.location.lon}&APPID=f5bd87baf248f1fabb4c782d4856430f`);
+    `https://api.openweathermap.org/data/2.5/forecast?lat=${userData.location.lat}&lon=${userData.location.lon}&APPID=f5bd87baf248f1fabb4c782d4856430f`);
     yield put({ type: "FIVE_DAYS_WEATHER_IS_FETCHED", payload: data});
 }
