@@ -11,8 +11,8 @@ import SunPosition from './SunPosition';
 import Chart from './Chart';
 
 const Home = () => {
-    const { currentWeather, fiveDaysWeather, userLocation } = useSelector(state => ({
-        userLocation: state.userData,
+    const { currentWeather, fiveDaysWeather, userData } = useSelector(state => ({
+        userData: state.userData,
         currentWeather: state.currentWeather,
         fiveDaysWeather: state.fiveDaysWeather
     }), shallowEqual);
@@ -58,7 +58,7 @@ const Home = () => {
         <div className="home" style={{backgroundImage: `url(${backgroundImage})`}}>
             <div className="home__container container">
                 <div className="container__item">
-                    <h2 className="container__title">Current weather in {userLocation.city}</h2>
+                    <h2 className="container__title">Current weather in {userData.city}</h2>
                     <div className="container__weather weather">
                         <div className="weather__items">
                             <Conditions currentWeather={currentWeather}/>
@@ -76,6 +76,14 @@ const Home = () => {
                     <h2 className="container__title">Five days weather</h2>
                     <div className="container__weather weather">
 
+                    </div>
+                </div>
+            </div>
+            <div className="modal" style={{display: userData.isError ? 'block' : 'none'}}>
+                <div className="modal__overlay" onClick={() => dispatch({type: 'CLOSE_MODAL', payload: {isError: false}})}>
+                    <div className="modal__window">
+                        <div className="modal__title">Something went wrong</div>
+                        <div className="modal__text">{userData.message}, make sure you have written place right or try to find another place.</div>
                     </div>
                 </div>
             </div>

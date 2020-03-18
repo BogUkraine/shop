@@ -3,7 +3,8 @@ const initialState = {
 		lat: '51.509865',
 		lon: '-0.118092',
 	},
-	city: 'London'
+	city: 'London',
+	isError: false,
 };
 
 export default function userData(state = initialState, action) {
@@ -12,8 +13,13 @@ export default function userData(state = initialState, action) {
 			return action.payload;
 		}
 		case('SET_USER_LOCATION'): {
-			console.log('action.payload', action.payload);
 			return {...state, ...action.payload};
+		}
+		case('SET_ERROR'): {
+			return {...state, ...action.payload, isError: true};
+		}
+		case('CLOSE_MODAL'): {
+			return {...state, ...action.payload}
 		}
 		default: {
 			return state;

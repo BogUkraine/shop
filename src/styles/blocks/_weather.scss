@@ -1,7 +1,11 @@
 .weather {
     display: flex;
     width: 100%;
-    height: $weather-block-normal-height;
+    height: $weather-block-normal-height-desktop;
+
+    @include phone {
+        height: $weather-block-normal-height-phone;
+    }
 
     &__items {
         display: flex;

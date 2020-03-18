@@ -11,7 +11,7 @@
     justify-content: center;
 
     &__container {
-        margin-top: 40px;
+        margin-top: $header-height;
 
         @include phone {
             opacity: 1;

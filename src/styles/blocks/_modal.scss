@@ -1,0 +1,42 @@
+.modal {
+    &__window {
+        position: fixed;
+        left: $modal-left;
+        right: auto;
+        top: $modal-top;
+        display: flex;
+        flex-direction: column;
+        width: $modal-width-desktop;
+        height: $modal-height-desktop;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: $modal-background-color;
+        font-size: 20px;
+
+        @include phone {
+            width: $modal-width-phone;
+            height: $modal-height-phone;
+            font-size: 16px;
+        }
+    }
+
+    &__title {
+        width: 100%;
+        font-weight: 600;
+    }
+
+    &__text {
+        width: 100%;
+        padding: 10px 0;
+        box-sizing: border-box;
+    }
+
+    &__overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: $modal-overlay-background-color;
+    }
+}

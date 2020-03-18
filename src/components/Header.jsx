@@ -15,6 +15,7 @@ const Header = () => {
         if(event.target === inputRef.current && event.key === 'Enter') {
             dispatch({type: 'FETCH_CURRENT_WEATHER_BY_CITY', city: inputRef.current.value});
             dispatch({type: 'FETCH_FIVE_DAYS_WEATHER_BY_CITY', city: inputRef.current.value});
+            inputRef.current.blur();
         }
     })
 
@@ -25,7 +26,7 @@ const Header = () => {
             <nav className="header__nav">
                 <NavLink to="/" className="header__link">Home</NavLink>
                 <NavLink to="/" className="header__link">Map</NavLink>
-                <NavLink to="/" className="header__link">Settings</NavLink>
+                <NavLink to="/" className="header__link">Charts</NavLink>
             </nav>
             <div className="header__search">
                 <input type="text" name="search" className="header__field" placeholder="find your city"

@@ -6,10 +6,11 @@ $header-height: 60px;
 $footer-height: 60px;
 $main-height: 100vh;
 
-$container-height-normal: 24vh;
+$container-height-normal: 180px;
 $container-height-small: 10vh;
 $container-height-big: 30vh;
-$weather-block-normal-height: calc(24vh - 44px);
+$weather-block-normal-height-desktop: 136px;
+$weather-block-normal-height-phone: 144px;
 
 $color-dark: #1e1d1d;
 $color-light: #eaeaea;
@@ -25,3 +26,12 @@ $container-background-color-light: #eaeaea;
 $scrollbar-color: #082d3a;
 $scrollbar-thumb-color: #050505;
 $scrollbar-track-color: #eaeaea;
+
+$modal-width-desktop: 400px;
+$modal-height-desktop: 170px;
+$modal-width-phone: 400px;
+$modal-height-phone: 170px;
+$modal-background-color: #cc3300;
+$modal-top: calc(50vh - 85px);
+$modal-overlay-background-color: rgba(0, 0, 0, 0.5);
+$modal-left: calc(50vw - 200px);
