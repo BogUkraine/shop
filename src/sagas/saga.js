@@ -1,5 +1,5 @@
 //import { delay } from 'redux-saga';
-import { takeLatest, all } from 'redux-saga/effects';
+import { takeLatest, all, delay } from 'redux-saga/effects';
 
 import currentWeatherByCoordinates from './currentWeather';
 import fiveDaysWeatherByCoordinates from './fiveDaysWeather';

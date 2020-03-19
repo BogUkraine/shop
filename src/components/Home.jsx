@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 
 import images from '../images/images';
-import isNight from '../functions/isNight';
 
-import Conditions from './Conditions';
-import Temperature from './Temperature';
-import Wind from './Wind';
-import SunPosition from './SunPosition';
-import Chart from './Chart';
+import Conditions from './Home/Conditions';
+import Temperature from './Home/Temperature';
+import Wind from './Home/Wind';
+import SunPosition from './Home/SunPosition';
+import HomeChart from './Home/HomeChart';
+import Modal from './Home/Modal';
 
 const Home = () => {
     const { currentWeather, fiveDaysWeather, userData } = useSelector(state => ({
@@ -49,7 +49,6 @@ const Home = () => {
     }, [lon, lat, dispatch]);
 
     useEffect(() => {
-        console.log('is night?', isNight(currentWeather.sys.sunrise, currentWeather.sys.sunset));
         const image = images.find((item) => item.description === currentWeather.weather[0].main) || {src: ''};
         setBackgroundImage(image.src)
     }, [currentWeather]);
@@ -70,7 +69,7 @@ const Home = () => {
                 </div>
                 <div className="container__item">
                     <h2 className="container__title">24 hours weather</h2>
-                    <Chart weather={fiveDaysWeather}/>
+                    <HomeChart weather={fiveDaysWeather} time={fiveDaysWeather.city}/>
                 </div>
                 <div className="container__item container__item--big">
                     <h2 className="container__title">Five days weather</h2>
@@ -79,14 +78,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="modal" style={{display: userData.isError ? 'block' : 'none'}}>
-                <div className="modal__overlay" onClick={() => dispatch({type: 'CLOSE_MODAL', payload: {isError: false}})}>
-                    <div className="modal__window">
-                        <div className="modal__title">Something went wrong</div>
-                        <div className="modal__text">{userData.message}, make sure you have written place right or try to find another place.</div>
-                    </div>
-                </div>
-            </div>
+            <Modal userData={userData}/>
         </div>
     )
 }

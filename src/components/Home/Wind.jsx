@@ -1,5 +1,5 @@
 import React from 'react';
-import convertPressure from '../functions/pressure';
+import convertPressure from '../../functions/pressure';
 
 const Wind = (props) => {
     return(

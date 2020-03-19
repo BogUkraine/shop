@@ -1,0 +1,54 @@
+.home-chart {
+    display: flex;
+    height: $home-chart-item-height;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    &__conditions {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: $home-chart-conditions-width;
+    }
+    
+    &__item {
+        position: relative;
+        min-width: $home-chart-item-windth;
+        margin: 0 6px;
+
+        &:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 2px;
+            height: 90%;
+            background: $color-light;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+    }
+
+    &__description {
+        text-align: center;
+    }
+
+    &__data {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    &__time {
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    &__temperature {
+        width: 160px;
+    }
+}

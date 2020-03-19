@@ -1,5 +1,5 @@
 import React from 'react';
-import kelvinToCelcium from '../functions/temperature';
+import kelvinToCelcium from '../../functions/temperature';
 
 const Temperature = (props) => {
     return (
